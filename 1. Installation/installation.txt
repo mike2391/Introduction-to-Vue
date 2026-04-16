@@ -1,0 +1,11 @@
+Welcome to your first Vue (read: view) App
+Vue is one of the most famous front-end JAvaScript framework.
+
+In Vue you create your "interface" using Vue components.
+Vue adheres to the concept of single file components(SFC). So you create your components in a single file.
+
+You will write your code (component) in a file with extension ".vue"
+Component usually contains 3 things:
+-Script (JS/TypeScript)
+-Template (HTML)
+-Style (CSS)
