@@ -9,3 +9,35 @@ Component usually contains 3 things:
 -Script (JS/TypeScript)
 -Template (HTML)
 -Style (CSS)
+
+Step-by-step installation:
+1. Type "npm create vue@latest" in your terminal
+2. Type your project name
+3. Choose "no" for "Use typescript?" question
+4. Choose "Linter (error prevention)" for "Select feature to include in your project" question.
+5. Choose "Replace Prettier with Oxfmt" for "Select experimental features to include in your project" question.
+6. Choose "no" for "Skip all example code and start with a blank Vue project?" question.
+7. Type "npm install" to install dependencies
+8. Type "npm run dev" to run your project
+
+*For number 6
+- You can choose "yes" if you want btw. But you will only get "src/App.vue" file, "app.js", and "index.html"
+- When you choose "no", you will get a default template of Vue project located in "src/components" folder and "src/App.vue" file.
+
+*Tips
+- Always run "npm install" after you create or clone vue project.
+
+Quick Guide about Vue
+1. In this project, you can see if you have HTML file with name "index.html".
+2. You can find your React file in folder "src".
+3. So, if you want to make your component, save it in folder "src".
+4. Default files you have since u succeed made your Vite project are "main.js", "App.vue", "index.html", and some files in src/components. (i delete it)
+5. If you want to use different name of html file, you need to configure it in "vite.config.js" file by add this script:
+    build: {
+        rollupOptions: {
+        input: {
+            main: 'index.html',
+            // add your html file name here
+        },
+        },
+    }
