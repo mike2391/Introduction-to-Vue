@@ -1,4 +1,4 @@
-# 1. Installation
+# 2. Text Interpolation vs Raw HTML
 
 This template should help get you started developing with Vue 3 in Vite.
 

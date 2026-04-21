@@ -21,11 +21,15 @@ Step-by-step installation:
 8. Type "npm run dev" to run your project
 
 *For number 6
-- You can choose "yes" if you want btw. But you will only get "src/App.vue" file, "app.js", and "index.html"
+- You can choose "yes" if you want btw. But you will only get "src/App.vue" file, "src/main.js", and "index.html"
 - When you choose "no", you will get a default template of Vue project located in "src/components" folder and "src/App.vue" file.
 
 *Tips
 - Always run "npm install" after you create or clone vue project.
+
+*fyi -> I have renamed the default file
+- App.vue -> HelloWorld.vue
+- main.js -> hello.js
 
 Quick Guide about Vue
 1. In this project, you can see if you have HTML file with name "index.html".
