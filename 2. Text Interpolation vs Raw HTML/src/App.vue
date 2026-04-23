@@ -1,6 +1,11 @@
 <script setup>
 const textInterpolation = "<b>This is Text Interpolation</b>";
 const RawHTML = "<b>This is Raw HTML</b>";
+
+// You can use JS Expression in Text Interpolation
+function hello() {
+  return "Hello";
+}
 </script>
 
 <template>
@@ -14,6 +19,10 @@ const RawHTML = "<b>This is Raw HTML</b>";
 
   <div class="text">{{ textInterpolation }}</div>
   <div class="text" v-html="RawHTML"></div>
+
+  <!-- Tips: we can use JS Expression in Text Interpolation -->
+  <div class="text">{{ textInterpolation.toUpperCase() }}</div>
+  <div>{{ hello() }}</div>
 </template>
 
 <style scoped>
