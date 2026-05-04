@@ -30,6 +30,13 @@ function changeScore() {
   <div v-else>
     <p>You got an C, your score is {{ score }}</p>
   </div>
+
+  <!-- we also can use v-show too -->
+  <div v-show="score > 90">Your score is {{ score }}</div>
+
+  <!-- the different between those 2 conditional rendering is: -->
+  <!-- v-if will only render the component if the condition is true/match -->
+  <!-- v-show will still get rendered even if the condition is false/not match but Vue will change the CSS display property to "none" -->
 </template>
 
 <style scoped></style>
