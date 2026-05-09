@@ -1,19 +1,22 @@
 {
   "folders": [
-	{
-		"path": "../../../IT"
-	},
-	{
-		"path": "../../../Web-Bima-CBD"
-	},
-	{
-		"path": "../../../Introduction-For-React-JS"
-	},
-	{
-		"path": "../.."
-	},
-	{
-		"path": "../../../Seminar-Next-Golang"
-	}
-]
+    {
+      "path": "../../../IT",
+    },
+    {
+      "path": "../../../Web-Bima-CBD",
+    },
+    {
+      "path": "../../../Introduction-For-React-JS",
+    },
+    {
+      "path": "../..",
+    },
+    {
+      "path": "../../../Seminar-Next-Golang",
+    },
+    {
+      "path": "../../../test-kerja",
+    },
+  ],
 }
