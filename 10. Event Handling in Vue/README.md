@@ -1,4 +1,4 @@
-# 10.Event Handling in Vue
+# 10. Event Handling in Vue
 
 This template should help get you started developing with Vue 3 in Vite.
 
