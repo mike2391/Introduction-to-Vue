@@ -55,6 +55,8 @@ watchEffect(async () => {
   const response = await fetch(`/${stuffID.value}.json`);
   stuff.value = await response.json();
 });
+
+// ********* There is 1 thing left to discuss about watchers, which is "cleanup". We will discuss it in the next chapter *********
 </script>
 
 <template>
