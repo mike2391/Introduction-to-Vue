@@ -11,11 +11,7 @@ import { ref, watch, watchEffect } from "vue";
 const productID = ref("");
 const product = ref(null);
 
-const itemID = ref("item1");
-const item = ref(null);
-
 // Watch
-
 // Watch have 3 parameters: source, callback, and options
 // source: productID
 // callback: a function that will run when the source changes.
@@ -29,6 +25,9 @@ watch(productID, async (newVal, oldVal) => {
   }
 });
 
+const itemID = ref("item1");
+const item = ref(null);
+
 watch(
   itemID,
   async (newItemVal, oldItemVal) => {
@@ -37,7 +36,8 @@ watch(
   },
   // options
   {
-    // immediate: makes the watcher run immediately when the app runs,
+    // immediate: makes the watcher run immediately when the app runs
+    // the app will not show anything eventho you already declare a default value like "const itemID = ref("item1");" if you not use "immediate: true"
     immediate: true,
 
     // once: makes the watcher run only once when the source changes, and then it will stop watching for changes.
@@ -45,15 +45,20 @@ watch(
   },
 );
 
-// WatchEffect
+const stuffID = ref("stuff1");
+const stuff = ref(null);
 
-watchEffect(async() => {
-  const response = await fetch(`/${itemID.value}.json`);
-  item.value = await response.json();
-})
+// WatchEffect
+// Similar to "watch", but it runs immediately when the app runs
+// watchEffect will run every time the source changes without the need to specify the source. (Vue automatically tracks the source)
+watchEffect(async () => {
+  const response = await fetch(`/${stuffID.value}.json`);
+  stuff.value = await response.json();
+});
 </script>
 
 <template>
+  <!-- ============Product============= -->
   <label for="productID">
     Product Id:
     <select v-model="productID">
@@ -72,7 +77,7 @@ watchEffect(async() => {
   </div>
 
   <hr />
-
+  <!-- =============Item============= -->
   <label for="itemID">
     Item Id:
     <select v-model="itemID">
@@ -87,6 +92,24 @@ watchEffect(async() => {
     <p>ID: {{ item.id }}</p>
     <p>Name: {{ item.name }}</p>
     <p>Description: {{ item.desc }}</p>
+  </div>
+
+  <hr />
+  <!-- =============Stuff============= -->
+  <label for="stuffID">
+    Stuff Id:
+    <select v-model="stuffID">
+      <option value="stuff1">Stuff 1</option>
+      <option value="stuff2">Stuff 2</option>
+      <option value="stuff3">Stuff 3</option>
+    </select>
+  </label>
+
+  <div v-if="stuff">
+    <h1>Stuff</h1>
+    <p>ID: {{ stuff.id }}</p>
+    <p>Name: {{ stuff.name }}</p>
+    <p>Description: {{ stuff.desc }}</p>
   </div>
 </template>
 
