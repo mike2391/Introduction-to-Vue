@@ -24,15 +24,16 @@ function addNote() {
 <!-- Then we access that element by using "useTemplateRef" -->
 
 <!-- We also can use useTemplateRef to make a variable represent a list of HTML elements (element with directive v-for) -->
+<!-- a variable that store a list of HTML elements will be filled with array data type -->
 
 <template>
-  <h1>Buat Note</h1>
+  <h1>Make a Note</h1>
 
   <div>
     <input type="text" ref="noteInput" v-model="note" placeholder="Tambah Note" />
-    <button @click="addNote">Tambah Note</button>
+    <button @click="addNote">Add Note</button>
   </div>
-  <h1>Daftar Note</h1>
+  <h1>Notes List</h1>
   <ul>
     <li v-for="note in notes" ref="notesList">
       {{ note }}
