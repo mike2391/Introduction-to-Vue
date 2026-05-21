@@ -1,10 +1,14 @@
 <script setup>
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from "vue";
 
-const isZoomed = ref(false);
+const isOpen = ref(false);
 
-function toggleZoom() {
-  isZoomed.value = !isZoomed.value;
+function openImage() {
+  isOpen.value = true;
+}
+
+function closeImage() {
+  isOpen.value = false;
 }
 
 const word = ref("Hello World");
@@ -31,11 +35,16 @@ onUpdated(() => {
 <!-- For example, if we want to run a function before the component is mounted, we can use "onBeforeMount" -->
 <!-- Similarly, we have hooks for other stages like "onMounted", "onBeforeUpdate", "onUpdated", etc. -->
 <!-- In this example, we will log a message in each lifecycle hook to see when they are called -->
+<!-- I suggets you to open it in the console so u will understand when they are called -->
 
 <template>
   <h1>Lifecycle Hooks</h1>
-  <div class="container">
-    <img class="image" style="height: 500px" src="/img/lifecycle.png" alt="Lifecycle Hooks" :class="{ zoomed: isZoomed }" @click="toggleZoom" />
+  <img src="/img/lifecycle.png" alt="lifecycle" class="thumbnail" @click="openImage" />
+
+  <!-- Overlay -->
+  <div v-if="isOpen" class="overlay" @click="closeImage">
+    <!-- Gambar besar -->
+    <img src="/img/lifecycle.png" alt="lifecycle" class="full-image" @click.stop />
   </div>
   <p>In Vue there are so many stages in the lifecycle</p>
   <ul>
@@ -54,18 +63,51 @@ onUpdated(() => {
 </template>
 
 <style scoped>
-.container {
-  overflow: hidden;
-}
-
-.image {
+.thumbnail {
   width: 250px;
-  cursor: pointer;
-  transition: 0.3s ease;
+  cursor: zoom-in;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-/* Saat di-zoom */
-.zoomed {
-  transform: scale(2);
+.thumbnail:hover {
+  opacity: 0.8;
+}
+
+/* Background hitam transparan */
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+/* Gambar besar */
+.full-image {
+  max-width: 90%;
+  max-height: 90%;
+
+  border-radius: 12px;
+
+  animation: zoom 0.2s ease;
+}
+
+/* Animasi muncul */
+@keyframes zoom {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 </style>
